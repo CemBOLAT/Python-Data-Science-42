@@ -14,10 +14,7 @@ def all_thing_is_obj(object: any) -> int:
         print("Type not found")
     return 42
 
-
-
 #Write a function that prints the object types and returns 42.
-
 """
 List : <class 'list'>
 Tuple : <class 'tuple'>

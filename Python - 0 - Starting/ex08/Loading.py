@@ -1,6 +1,7 @@
 import time
 import shutil
 
+
 def format_time(seconds):
     """
     Format the given time in seconds as MM:SS.
@@ -31,7 +32,8 @@ def ft_tqdm(lst: range):
         progressBar = f"|{'█' * progressedWidth:<{terminalBarWidth}}|"
         prograssPercent = progressedWidth * 100 // terminalBarWidth
         progressInfo = f"{prograssPercent}%{progressBar} {i}/{totalElements}"
-        timeInfo = f"[{format_time(timeElapsed)}<{format_time(timeEstimate)}, {progressSpeed:.2f}it/s]"
+        timeInfo = f"[{format_time(timeElapsed)}<{format_time(timeEstimate)},\
+                {progressSpeed:.2f}it/s]"
 
         print(f"\r{progressInfo} {timeInfo}", end="", flush=True)
         yield item
