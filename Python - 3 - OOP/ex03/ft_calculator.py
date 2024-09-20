@@ -17,8 +17,7 @@ class calculator:
         """
         self.list = [x + object for x in self.list]
         print(self.list)
-    
-    
+
     def __mul__(self, object) -> None:
         """
         Description: Multiply a number to the list
@@ -31,8 +30,7 @@ class calculator:
         """
         self.list = [x * object for x in self.list]
         print(self.list)
-    
-    
+
     def __sub__(self, object) -> None:
         """
         Description: Subtract a number to the list
@@ -45,8 +43,7 @@ class calculator:
         """
         self.list = [x - object for x in self.list]
         print(self.list)
-    
-    
+
     def __truediv__(self, object) -> None:
         """
         Description: Divide a number to the list

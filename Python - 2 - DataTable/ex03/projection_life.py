@@ -5,7 +5,8 @@ import matplotlib.pyplot as plt
 def main():
     try:
         year = '1900'
-        gdp_per_capita = load("income_per_person_gdppercapita_ppp_inflation_adjusted.csv")
+        gdp_per_capita = \
+            load("income_per_person_gdppercapita_ppp_inflation_adjusted.csv")
         life_expectancy = load("life_expectancy_years.csv")
         if gdp_per_capita is None or life_expectancy is None:
             raise AssertionError("Dataset cannot be loaded")

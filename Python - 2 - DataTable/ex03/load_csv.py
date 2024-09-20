@@ -1,8 +1,21 @@
 import pandas as pd
-import os
 
 
 def load(path: str) -> pd.DataFrame:
+    """
+    Load a CSV file into a pandas DataFrame
+
+    Args:
+        path (str): The path to the CSV file
+
+    Returns:
+        pd.DataFrame: The DF containing the data from the CSV file
+
+    Raises:
+        FileNotFoundError: If the file is not found
+        PermissionError: If the file is not accessible
+        AssertionError: If the file is not a CSV file
+    """
     try:
         if (not path.endswith(".csv")):
             raise AssertionError("File is not a CSV file")
@@ -16,4 +29,4 @@ def load(path: str) -> pd.DataFrame:
         print(f"Permission Error: {e}")
     except AssertionError as e:
         print(f"Assertion Error: {e}")
-    return None    
+    return None

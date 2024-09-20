@@ -1,6 +1,6 @@
 import numpy as np
-from PIL import Image
 import matplotlib.pyplot as plt
+
 
 def ft_invert(array):
     """
@@ -17,8 +17,10 @@ def ft_invert(array):
 
     Logic
     -----
-    - A new image array is created with the same dimensions as the input but filled with zeros.
-    - The colors in each channel (Red, Green, Blue) are inverted by subtracting the original channel values from 255.
+    - A new image array is created with \
+        the same dimensions as the input but filled with zeros.
+    - The colors in each channel (Red, Green, Blue) \
+        are subtracted from 255 to invert the colors.
     - The resulting inverted image is displayed using matplotlib.
     """
     image = np.zeros_like(array)
@@ -46,9 +48,12 @@ def ft_red(array):
 
     Logic
     -----
-    - A new image array is created with the same dimensions as the input but filled with zeros.
-    - The red channel of the input image is copied to the red channel of the new image.
-    - The new image with only the red channel is displayed using matplotlib.
+    - A new image array is created \
+        with the same dimensions as the input but filled with zeros.
+    - The red channel of the input \
+        image is copied to the red channel of the new image.
+    - The new image with only the \
+        red channel is displayed using matplotlib.
     """
     reds = array[:, :, 0]
     image = np.zeros_like(array)
@@ -74,9 +79,12 @@ def ft_green(array):
 
     Logic
     -----
-    - A new image array is created with the same dimensions as the input but filled with zeros.
-    - The green channel of the input image is copied to the green channel of the new image.
-    - The new image with only the green channel is displayed using matplotlib.
+    - A new image array is created \
+        with the same dimensions as the input but filled with zeros.
+    - The green channel of the input \
+        image is copied to the green channel of the new image.
+    - The new image with only the green \
+        channel is displayed using matplotlib.
     """
     greens = array[:, :, 1]
     image = np.zeros_like(array)
@@ -102,9 +110,12 @@ def ft_blue(array):
 
     Logic
     -----
-    - A new image array is created with the same dimensions as the input but filled with zeros.
-    - The blue channel of the input image is copied to the blue channel of the new image.
-    - The new image with only the blue channel is displayed using matplotlib.
+    - A new image array is created with \
+        the same dimensions as the input but filled with zeros.
+    - The blue channel of the input image \
+        is copied to the blue channel of the new image.
+    - The new image with only the blue \
+        channel is displayed using matplotlib.
     """
     blues = array[:, :, 2]
     image = np.zeros_like(array)
@@ -117,7 +128,8 @@ def ft_blue(array):
 
 def ft_grey(array):
     """
-    Converts the input image to grayscale using the average of the RGB channels.
+    Converts the input image to grayscale \
+        using the average of the RGB channels.
 
     Parameters
     ----------
@@ -131,7 +143,8 @@ def ft_grey(array):
     Logic
     -----
     - The red, green, and blue channels of the input image are averaged.
-    - The resulting grayscale values are applied to all three channels (R, G, B) to create a grayscale image.
+    - The resulting grayscale values are applied \
+        to all three channels (R, G, B) to create a grayscale image.
     - The grayscale image is displayed using matplotlib.
     """
     reds = array[:, :, 0]

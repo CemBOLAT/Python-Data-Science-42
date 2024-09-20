@@ -1,7 +1,22 @@
 from load_csv import load
 import matplotlib.pyplot as plt
 
+
 def population_str_to_float(population: str) -> float:
+    """
+    Convert a population string to a float
+
+    Args:
+        population (str): The population string
+
+    Returns:
+        float: The population as a float
+
+    Logic:
+        - Check if the population string ends with "M"
+        - Check if the population string ends with "K"
+        - Convert the population string to a float
+    """
     try:
         if population.endswith("M"):
             return float(population[:-1]) * 1e6
@@ -10,6 +25,7 @@ def population_str_to_float(population: str) -> float:
         return float(population)
     except ValueError:
         return 0.0
+
 
 def main():
     try:
@@ -20,17 +36,24 @@ def main():
         dataset = load("population_total.csv")
         if dataset is None:
             raise AssertionError("Dataset cannot be loaded")
-        
+
         country_data = dataset[dataset["country"] == counties[0]]
         years = country_data.columns[1:]
-        years = [int(year) for year in years if int(year) >= min_year and int(year) <= max_year]
-        
+        years_int = []
+        for year in years:
+            year_int = int(year)
+            if year_int >= min_year and year_int <= max_year:
+                years_int.append(year_int)
+
         for country in counties:
             country_data = dataset[dataset["country"] == country]
             if country_data.empty:
                 raise AssertionError(f"{country} data not found")
-            
-            population = [population_str_to_float(country_data.values[0][i]) for i in range(1, len(years) + 1)]
+
+            population = []
+            for i in range(1, len(years) + 1):
+                pop = population_str_to_float(country_data.values[0][i])
+                population.append(pop)
 
             dict_template = {
                 "name": country,
@@ -58,9 +81,13 @@ def main():
     except AssertionError as e:
         print(f"Assertion Error: {e}")
         return
+    except ValueError as e:
+        print(f"Value Error: {e}")
+        return
     except KeyboardInterrupt:
         print("Process interrupted by the user")
         return
+
 
 if __name__ == "__main__":
     main()
