@@ -43,5 +43,4 @@ setup(
         'console_scripts': [],
     },
     license='MIT',
-    
 )

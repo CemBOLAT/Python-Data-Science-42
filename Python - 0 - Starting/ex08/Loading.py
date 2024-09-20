@@ -17,6 +17,15 @@ def format_time(seconds):
 
 
 def ft_tqdm(lst: range):
+    """
+    Display a progress bar for the given range.
+
+    Args:
+        lst (range): Range to iterate over.
+
+    Yields:
+        Any: Current item from the range
+    """
     totalElements = len(lst)
     timeStart = time.time()
 
@@ -33,7 +42,7 @@ def ft_tqdm(lst: range):
         prograssPercent = progressedWidth * 100 // terminalBarWidth
         progressInfo = f"{prograssPercent}%{progressBar} {i}/{totalElements}"
         timeInfo = f"[{format_time(timeElapsed)}<{format_time(timeEstimate)},\
-                {progressSpeed:.2f}it/s]"
+{progressSpeed:.2f}it/s]"
 
         print(f"\r{progressInfo} {timeInfo}", end="", flush=True)
         yield item
