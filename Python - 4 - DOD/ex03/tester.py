@@ -1,9 +1,15 @@
 from new_student import Student
 
+try:
+    print("Correct init")
+    student = Student(name="Edward", surname="agle")
+    print(student)
+except TypeError as e:
+    print(f"TypeError: {e}")
 
-print("\n		TEST 1\n")
-student = Student(name="Edward", surname="agle")
-print(student)
-print("\n\n		TEST 2: Wrong initialization\n")
-student = Student(name="Edward", surname="agle", id="toto")
-print(student)
+try:
+    print("Wrong initialization")
+    student = Student(name="Edward", surname="agle", id="toto")
+    print(student)
+except TypeError as e:
+    print(f"TypeError: {e}")
